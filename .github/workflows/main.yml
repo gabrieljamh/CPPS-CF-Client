@@ -26,14 +26,12 @@ jobs:
               uses: actions/setup-node@v1
               with:
                   node-version: '12.x'
-
-            - name: Install dependencies and update npm
-              run: |
-              	  npm i
-              	  npm -v
-              	  npm install -g npm
-              	  npm -v
-              	  npm i
+                  
+            - name: Update NPM
+              run: npm install -g npm
+              
+            - name: Install dependencies
+              run: npm i
 
             - name: Install flatpak
               if: startsWith(matrix.os, 'ubuntu')
