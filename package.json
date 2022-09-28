@@ -12,8 +12,8 @@
   "bugs": {
     "url": "https://github.com/WaddlePenguins/cpatake_app/issues"
   },
-  "homepage": "https://github.com/WaddlePenguins/cpatake_app#readme",
-  "repository": "https://github.com/WaddlePenguins/cpatake_app",
+  "homepage": "https://github.com/gabrieljamh/CPPS-CF-Client#readme",
+  "repository": "https://github.com/gabrieljamh/CPPS-CF-Client",
   "author": "Waddle Penguins / AltoDev (the original version)",
   "license": "CC0-1.0",
   "devDependencies": {
@@ -27,8 +27,8 @@
     "electron-updater": "^4.2.0"
   },
   "build": {
-    "appId": "com.waddlepenguins.cpadesktop",
-    "productName": "CP Atake Desktop",
+    "appId": "com.gabrieljamh.cpps",
+    "productName": "CPPS Client",
     "asar": "false",
     "win": {
       "publish": "github"
