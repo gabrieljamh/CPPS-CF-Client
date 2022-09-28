@@ -27,8 +27,13 @@ jobs:
               with:
                   node-version: '12.x'
 
-            - name: Install dependencies
-              run: npm i
+            - name: Install dependencies and update npm
+              run: |
+              	  npm i
+              	  npm -v
+              	  npm install -g npm
+              	  npm -v
+              	  npm i
 
             - name: Install flatpak
               if: startsWith(matrix.os, 'ubuntu')
