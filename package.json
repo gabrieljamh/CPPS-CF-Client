@@ -19,11 +19,11 @@
   "devDependencies": {
     "electron": "^15.5.5",
     "electron-builder": "^22.2.0",
-    "electron-is-dev": "^1.1.0"
+    "electron-is-dev": "^2.0.0"
   },
   "dependencies": {
     "discord-rpc": "^3.2.0",
-    "electron-is-dev": "^1.1.0",
+    "electron-is-dev": "^2.0.0",
     "electron-updater": "^4.2.0"
   },
   "build": {
