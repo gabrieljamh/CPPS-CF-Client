@@ -31,7 +31,7 @@ const {autoUpdater} = require("electron-updater");
 
 const DiscordRPC = require('discord-rpc');
 
-const aboutMessage = `Coastal Freeze Client v${app.getVersion()}
+const aboutMessage = `CPPS Client based on Coastal Freeze Client v${app.getVersion()}
 Created by Allinol and Random for use with Coastal Freeze.
 Owners of Coastal Freeze: Fliberjig1 and Snickerdoodle`;
 
@@ -140,14 +140,14 @@ function createMenu() {
     fsmenu = new Menu();
     if (process.platform == 'darwin') {
         fsmenu.append(new MenuItem({
-            label: "Coastal Freeze Client",
+            label: "LUcpbcraft Client",
             submenu: [{
                     label: 'About',
                     click: () => {
                         dialog.showMessageBox({
                             type: "info",
                             buttons: ["Ok"],
-                            title: "About Coastal Freeze",
+                            title: "About Client",
                             message: aboutMessage
                         });
                     }
@@ -230,7 +230,7 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     useContentSize: true,
     show: false,
-    title: "Coastal Freeze",
+    title: "CPPS Client",
     webPreferences: {
 	  preload: path.join(__dirname, './preload.js'),
       plugins: true,
