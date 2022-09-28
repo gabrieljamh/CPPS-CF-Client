@@ -1,6 +1,6 @@
 {
 	"name": "CPPS-Client",
-	"version": "1",
+	"version": "1.0.0",
 	"description": "Coastal Freeze based CPPS Client",
 	"productName": "CPPSe",
 	"main": "main.js",
