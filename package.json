@@ -1,19 +1,16 @@
 {
 	"name": "cpps-client",
-	"version": "1.0.0",
-	"description": "Coastal Freeze Downloadable Client",
-	"productName": "Coastal Freeze",
+	"version": "1.0.1",
+	"description": "Made with Love",
+	"productName": "CPPS Client",
 	"main": "main.js",
 	"scripts": {
 		"start": "electron ."
 	},
 	"repository": "https://github.com/gabrieljamh/CPPS-CF-Client",
 	"keywords": [
-		"coastal",
-		"freeze",
 		"club penguin",
-		"cpr",
-		"coastal freeze"
+		"cpr"
 	],
 	"build": {
 		"publish": [
@@ -23,7 +20,7 @@
 				"repo": "CPPS-CF-Client"
 			}
 		],
-		"appId": "net.coastalfreeze.client",
+		"appId": "vlhs.cpbcraft.client",
 		"mac": {
 			"asar": false,
 			"target": "dmg",

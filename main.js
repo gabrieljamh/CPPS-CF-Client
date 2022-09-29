@@ -29,7 +29,6 @@ const path = require('path')
 
 const {autoUpdater} = require("electron-updater");
 
-const DiscordRPC = require('discord-rpc');
 
 const aboutMessage = `Coastal Freeze Client v${app.getVersion()}
 Created by Allinol and Random for use with Coastal Freeze.
@@ -76,29 +75,7 @@ app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName
 app.commandLine.appendSwitch("disable-http-cache");
 
 
-/**
- * Activates Discord Rich Presence
- * @returns {void}
- */
-let rpc;
-function activateRPC() { 
-  DiscordRPC.register('792072685790167070');
-  rpc = new DiscordRPC.Client({
-	  transport: 'ipc'
-  }); 
-  const startTimestamp = new Date();
-  rpc.on('ready', () => {
-    rpc.setActivity({
-      details: `coastalfreeze.net`, 
-      state: `Desktop Client`, 
-      startTimestamp, 
-      largeImageKey: imageName
-    });
-  });
-  rpc.login({
-	clientId: '792072685790167070' 
-  }).catch(console.error);
-}
+
 /**
  * creates the loading screen
  * @returns {void}
@@ -127,7 +104,6 @@ function createLoadingScreen(){
 	createWindow();
 	mainWindow.webContents.on('did-finish-load', () => {
 		if(loadingScreen) loadingScreen.close()
-		if(!rpc) activateRPC()
 		mainWindow.show()
 	})
   });
@@ -140,14 +116,14 @@ function createMenu() {
     fsmenu = new Menu();
     if (process.platform == 'darwin') {
         fsmenu.append(new MenuItem({
-            label: "Coastal Freeze Client",
+            label: "CPPS Client",
             submenu: [{
                     label: 'About',
                     click: () => {
                         dialog.showMessageBox({
                             type: "info",
                             buttons: ["Ok"],
-                            title: "About Coastal Freeze",
+                            title: "About Client",
                             message: aboutMessage
                         });
                     }
@@ -187,7 +163,7 @@ function createMenu() {
                 dialog.showMessageBox({
                     type: "info",
                     buttons: ["Ok"],
-                    title: "About Coastal Freeze",
+                    title: "About Client",
                     message: aboutMessage
                 });
             }
@@ -230,7 +206,7 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     useContentSize: true,
     show: false,
-    title: "Coastal Freeze",
+    title: "LU Club Penguin BCraft - Made with Love",
     webPreferences: {
 	  preload: path.join(__dirname, './preload.js'),
       plugins: true,
@@ -240,7 +216,7 @@ function createWindow () {
   })
   registerKeys()
   Menu.setApplicationMenu(createMenu());
-  mainWindow.loadURL('https://play.coastalfreeze.net/client/');
+  mainWindow.loadURL('http://new.cpbcraft.vlhs/');
   
 }
 
