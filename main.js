@@ -14,6 +14,8 @@ Made with Love
 Owners of Coastal Freeze: Fliberjig1 and Snickerdoodle
 Project BomberCraft Admin: Junji`;
 
+const boutMessage = `Made with Love. Danrio & Junji.`;
+
 
 /**
  * This switch case will return the correct DLL/so/plugin for the app
@@ -109,7 +111,7 @@ function createMenu() {
                     }
                 },
                 {
-                    label: 'Fullscreen (Toggle)',
+                    label: 'Fullscreen (Ctrl+F)',
                     accelerator: 'CmdOrCtrl+F',
                     click: () => {
                         mainWindow.setFullScreen(!mainWindow.isFullScreen());
@@ -117,7 +119,7 @@ function createMenu() {
                     }
                 },
                 {
-                    label: 'Mute Audio (Toggle)',
+                    label: 'Mute Audio (Ctrl+M)',
 					accelerator: 'CmdOrCtrl+M',
                     click: () => {
                         mainWindow.webContents.audioMuted = !mainWindow.webContents.audioMuted;
@@ -125,18 +127,23 @@ function createMenu() {
                     }
                 },
                 {
-                    label: 'Dark Mode (Toggle)',
+                    label: '.',
                     click: () => {
-                        darkMode()
+                        dialog.showMessageBox({
+                            type: "info",
+                            buttons: ["Ok"],
+                            title: "'Bout Love",
+                            message: boutMessage
+                        });
                     }
-                },
-                {
-                    label: 'Log Out',
-					click: () => clearCacheAndReload()
                 },
                 {
                     label: 'Vanilla',
 					click: () => goToVanilla()
+                },
+                {
+                    label: 'Legacy',
+					click: () => goToLegacy()
                 }
             ]
         }));
@@ -153,33 +160,26 @@ function createMenu() {
             }
         }));
         fsmenu.append(new MenuItem({
-            label: 'Fullscreen (Toggle)',
+            label: 'Fullscreen (Ctrl+F)',
             accelerator: 'CmdOrCtrl+F',
             click: () => {
                 mainWindow.setFullScreen(!mainWindow.isFullScreen());
             }
         }));
         fsmenu.append(new MenuItem({
-            label: 'Mute Audio (Toggle)',
+            label: 'Mute Audio (Ctrl+M)',
 			accelerator: 'CmdOrCtrl+M',
             click: () => {
                 mainWindow.webContents.audioMuted = !mainWindow.webContents.audioMuted;
                 mainWindow.webContents.send('muted', mainWindow.webContents.audioMuted);
             }
-        }));
-        fsmenu.append(new MenuItem({
-            label: 'Dark Mode (Toggle)',
-            click: () => {
-                darkMode()
-            }
-        }));
-        fsmenu.append(new MenuItem({
-            label: 'Log Out',
-            click: () => clearCacheAndReload()
-        }));
         fsmenu.append(new MenuItem({
             label: 'Vanilla',
             click: () => goToVanilla()
+        }));
+        fsmenu.append(new MenuItem({
+            label: 'Legacy',
+            click: () => goToLegacy()
         }));
     }
 	return fsmenu
@@ -204,17 +204,8 @@ function createWindow () {
   })
   registerKeys()
   Menu.setApplicationMenu(createMenu());
-  mainWindow.loadURL('http://new.cpbcraft.vlhs/');
+  mainWindow.loadURL('http://new.cpbcraft.vlhs/pt');
   
-}
-
-/**
- * Clears cache and reload
- * @returns {void}
- */
-function clearCacheAndReload() {
-	const ses = mainWindow.webContents.session;
-	ses.clearCache().then(() => mainWindow.webContents.send('reload'));
 }
 
 /**
@@ -223,7 +214,16 @@ function clearCacheAndReload() {
  */
 function goToVanilla() {
 	const ses = mainWindow.webContents.session;
-	ses.clearCache().then(() => mainWindow.loadURL('http://new.cpbcraft.vlhs/'));
+	ses.clearCache().then(() => mainWindow.loadURL('http://new.cpbcraft.vlhs/pt'));
+}
+
+/**
+ * Go To Legacy
+ * @returns {void}
+ */
+function goToLegacy() {
+	const ses = mainWindow.webContents.session;
+	ses.clearCache().then(() => mainWindow.loadURL('http://legacy.cpbcraft.vlhs/'));
 }
 
 /**
@@ -234,15 +234,6 @@ function registerKeys() {
 	globalShortcut.register('CmdOrCtrl+Shift+I', () => {
 		mainWindow.webContents.openDevTools();
 	})
-}
-/**
- * Toggles Dark mode
- * @returns {Boolean}
- */
-function darkMode() {
-	nativeTheme.themeSource = nativeTheme.shouldUseDarkColors ? 'dark' : 'light'
-    mainWindow.webContents.send('theme', nativeTheme.themeSource);
-    return nativeTheme.shouldUseDarkColors
 }
 
 /**
