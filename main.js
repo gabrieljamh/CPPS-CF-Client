@@ -153,6 +153,10 @@ function createMenu() {
                 {
                     label: 'Log Out',
 					click: () => clearCacheAndReload()
+                },
+                {
+                    label: 'Vanilla',
+					click: () => goToVanilla()
                 }
             ]
         }));
@@ -193,6 +197,10 @@ function createMenu() {
             label: 'Log Out',
             click: () => clearCacheAndReload()
         }));
+        fsmenu.append(new MenuItem({
+            label: 'Vanilla',
+            click: () => goToVanilla()
+        }));
     }
 	return fsmenu
 }
@@ -227,6 +235,15 @@ function createWindow () {
 function clearCacheAndReload() {
 	const ses = mainWindow.webContents.session;
 	ses.clearCache().then(() => mainWindow.webContents.send('reload'));
+}
+
+/**
+ * Go To Vanilla
+ * @returns {void}
+ */
+function goToVanilla() {
+	const ses = mainWindow.webContents.session;
+	ses.clearCache().then(() => mainWindow.loadURL('http://new.cpbcraft.vlhs/'));
 }
 
 /**
