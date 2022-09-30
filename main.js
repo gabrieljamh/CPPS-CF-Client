@@ -173,6 +173,7 @@ function createMenu() {
                 mainWindow.webContents.audioMuted = !mainWindow.webContents.audioMuted;
                 mainWindow.webContents.send('muted', mainWindow.webContents.audioMuted);
             }
+        }));
         fsmenu.append(new MenuItem({
             label: '.',
             click: () => {
