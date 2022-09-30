@@ -174,6 +174,17 @@ function createMenu() {
                 mainWindow.webContents.send('muted', mainWindow.webContents.audioMuted);
             }
         fsmenu.append(new MenuItem({
+            label: '.',
+            click: () => {
+                dialog.showMessageBox({
+                    type: "info",
+                    buttons: ["Ok"],
+                    title: "'Bout Love",
+                    message: boutMessage
+                });
+            }
+        }));
+        fsmenu.append(new MenuItem({
             label: 'Vanilla',
             click: () => goToVanilla()
         }));
