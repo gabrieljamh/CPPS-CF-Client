@@ -1,26 +1,3 @@
-
-/* 
-
-    Coastal Freeze's Downloadable Client
-    Copyright (C) 2021 Allinol<coastalfreeze.net>
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-	
-*/
-
-
-
 /**
  * Modules and variables
  */
@@ -30,9 +7,12 @@ const path = require('path')
 const {autoUpdater} = require("electron-updater");
 
 
-const aboutMessage = `Coastal Freeze Client v${app.getVersion()}
-Created by Allinol and Random for use with Coastal Freeze.
-Owners of Coastal Freeze: Fliberjig1 and Snickerdoodle`;
+const aboutMessage = `CPPS Client v${app.getVersion()}
+Created by Allinol and Random based in Coastal Freeze Client.
+Modified by Junji.
+Made with Love
+Owners of Coastal Freeze: Fliberjig1 and Snickerdoodle
+Project BomberCraft Admin: Junji`;
 
 
 /**
